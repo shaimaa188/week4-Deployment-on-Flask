@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300">
+
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+
+    <title>Flower Class ML</title>
+
+</head>
+
+<body>
+<div class="login">
+
+
+    
+      
+      <!-- As a heading -->
+      <nav class="navbar navbar-light bg-nav">
+        <img id="logo" src="{{url_for('static', filename='images/logo.jpg')}}"/>
+      </nav>
+
+    
+
+    <!-- Main Input For Receiving Query to our ML -->
+<div Class="main-div"> 
+    <h1 class="h">Flower Class Prediction</h1>
+    <div class="side-div2">
+        
+        <form action="{{ url_for('predict')}}" method="post" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <input class="form-control" name="Sepal_Length" placeholder="Sepal_Length" required="required"
+                       type="text"/>
+            </div>
+
+            <div class="form-group">
+                <input class="form-control" name="Sepal_Width" placeholder="Sepal_Width" required="required"
+                       type="text"/>
+            </div>
+
+            <div class="form-group">
+                <input class="form-control" name="Petal_Length" placeholder="Petal_Length" required="required"
+                       type="text"/>
+            </div>
+
+            <div class="form-group">
+                <input class="form-control" name="Petal_Width" placeholder="Petal_Width" required="required"
+                       type="text"/>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-primary btn-block btn-large" type="submit">Predict</button>
+            </div>
+            
+
+        </form>
+      
+
+      
+    </div>
+
+    <h3 class="h">{{ prediction_text }}</h3>
+   
+</div>
+
+</div>
+
+
+</body>
+</html>
